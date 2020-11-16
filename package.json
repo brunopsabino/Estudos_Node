@@ -1,0 +1,19 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Repositório para estudos de Node js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunopsabino/Estudos_Node.git"
+  },
+  "author": "Bruno Sabino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunopsabino/Estudos_Node/issues"
+  },
+  "homepage": "https://github.com/brunopsabino/Estudos_Node#readme"
+}
