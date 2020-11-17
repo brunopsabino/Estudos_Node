@@ -1,11 +1,11 @@
 const path = require('path')
 const express = require('express')
-const { reset } = require('nodemon')
 
 const router = express.Router()
+const rootDir = require('../util/path')
 
 router.get('/add-product', (req, res) => {
-    res.sendFile(path.join(__dirname, '../', 'views', 'add-product.html'))
+    res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
 })
 
 //Filtrando rota para ser acessível apenas para requisições do tipo POST
