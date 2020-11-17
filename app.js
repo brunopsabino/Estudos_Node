@@ -9,10 +9,11 @@ const app = express()
 const adminRoutes = require('./routes/admin')
 const shopRoutes  = require('./routes/shop')
 
-app.use(bodyParser.urlencoded({extended: false})) //Adicionando body parser na aplicação
+//Adicionando body parser na aplicação para possibilitar a leitura das responses
+app.use(bodyParser.urlencoded({extended: false})) 
 
 /* Fluxo de middlewares vai top to bottom*/
-app.use('/admin', adminRoutes)
+app.use('/admin', adminRoutes)//Usando filter /admin para as rotas de adminRoutes
 app.use(shopRoutes)
 
 //Adicionando Page not Found
@@ -20,7 +21,7 @@ app.use((req, res) =>{
     res.status(404).sendFile(path.join(__dirname, 'views', 'page-not-found.html'))
 })
 
-
+//Escutar porta definida
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
