@@ -4,22 +4,20 @@ const port = 3000
 
 const app = express()
 
+//Routes
+const adminRoutes = require('./routes/admin')
+const shopRoutes  = require('./routes/shop')
+
 app.use(bodyParser.urlencoded({extended: false})) //Adicionando body parser na aplicação
 
 /* Fluxo de middlewares vai top to bottom*/
-app.get('/', (req, res) => {
-    res.send('<h1>Hello Express!</h1>')
-})
+app.use('/admin', adminRoutes)
+app.use(shopRoutes)
 
-app.use('/add-product', (req, res) => {
-    res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>')
+//Adicionando Page not Found
+app.use((req, res) =>{
+    res.status(404).send('<h1>Página não encontrada!</h1>')
 })
-
-app.use('/product', (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
-})
-
 
 
 app.listen(port, () => {
