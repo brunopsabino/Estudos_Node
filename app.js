@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
 const port = 3000
 
 const app = express()
@@ -16,7 +17,7 @@ app.use(shopRoutes)
 
 //Adicionando Page not Found
 app.use((req, res) =>{
-    res.status(404).send('<h1>Página não encontrada!</h1>')
+    res.status(404).sendFile(path.join(__dirname, 'views', 'page-not-found.html'))
 })
 
 
