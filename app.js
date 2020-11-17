@@ -10,7 +10,9 @@ const adminRoutes = require('./routes/admin')
 const shopRoutes  = require('./routes/shop')
 
 //Adicionando body parser na aplicação para possibilitar a leitura das responses
-app.use(bodyParser.urlencoded({extended: false})) 
+app.use(bodyParser.urlencoded({extended: false}))
+//Servir arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')))
 
 /* Fluxo de middlewares vai top to bottom*/
 app.use('/admin', adminRoutes)//Usando filter /admin para as rotas de adminRoutes
