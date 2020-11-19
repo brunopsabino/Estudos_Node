@@ -5,6 +5,9 @@ const port = 3000
 
 const app = express()
 
+app.set('view engine', 'pug')//variável global
+app.set('views', 'views')
+
 //Routes
 const adminRoutes = require('./routes/admin')
 const shopRoutes  = require('./routes/shop')
