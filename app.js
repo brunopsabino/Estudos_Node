@@ -5,7 +5,7 @@ const port = 3000
 
 const app = express()
 
-app.set('view engine', 'pug')//variável global
+app.set('view engine', 'ejs')//variável global para definir a templete engine que sera usada
 app.set('views', 'views')
 
 //Routes
