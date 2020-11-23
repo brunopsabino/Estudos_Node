@@ -24,7 +24,7 @@ app.use(shopRoutes)
 //Adicionando Page not Found
 app.use((req, res) =>{
     //res.status(404).sendFile(path.join(__dirname, 'views', 'page-not-found.html'))
-    res.status(404).render('page-note-found', {docTitle: 'Page not Found'})
+    res.status(404).render('page-not-found', {docTitle: 'Page not Found', path: "not_found"})
 })
 
 //Escutar porta definida
