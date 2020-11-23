@@ -10,7 +10,7 @@ const products = [];
 //Rota get para adicionar produtos
 router.get('/add-product', (req, res) => {
     //res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
-    res.render('add-product', {docTitle: 'Add Product'})
+    res.render('add-product', {docTitle: 'Add Product', path: '/admin/add-product'})
 })
 
 //Filtrando rota para ser acessível apenas para requisições do tipo POST
