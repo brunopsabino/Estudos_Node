@@ -8,6 +8,9 @@ const app = express()
 app.set('view engine', 'ejs')//variável global para definir a templete engine que sera usada
 app.set('views', 'views')
 
+//Controller
+const erroController  = require('./controllers/error')
+
 //Routes
 const adminRoutes = require('./routes/admin')
 const shopRoutes  = require('./routes/shop')
@@ -22,10 +25,7 @@ app.use('/admin', adminRoutes)//Usando filter /admin para as rotas de adminRoute
 app.use(shopRoutes)
 
 //Adicionando Page not Found
-app.use((req, res) =>{
-    //res.status(404).sendFile(path.join(__dirname, 'views', 'page-not-found.html'))
-    res.status(404).render('page-not-found', {docTitle: 'Page not Found', path: "not_found"})
-})
+app.use(erroController.get404)
 
 //Escutar porta definida
 app.listen(port, () => {

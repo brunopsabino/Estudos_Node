@@ -5,8 +5,6 @@ const router = express.Router()
 const productsController = require('../controllers/products')
 
 
-
-
 //Rota get para adicionar produtos
 router.get('/add-product', productsController.getAddProduct)
 
