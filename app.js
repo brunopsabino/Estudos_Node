@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 /* Fluxo de middlewares vai top to bottom*/
-app.use('/admin', adminRoutes.routes)//Usando filter /admin para as rotas de adminRoutes
+app.use('/admin', adminRoutes)//Usando filter /admin para as rotas de adminRoutes
 app.use(shopRoutes)
 
 //Adicionando Page not Found
