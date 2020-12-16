@@ -12,6 +12,5 @@ exports.postAddProduct = (req, res) => {
 
 exports.getProducts = (req, res) => {
     const products = Product.fetchAll()
-    //console.log(products)
-    res.render('shop', {prods: products, docTitle: 'Shop', path: '/'}) //Renderizar um template. Arwuivos pug foram definidos como padrão. Pasta views, definida como pasta de templates
+    res.render('shop', {prods: products, docTitle: 'Shop', path: '/'}) 
 }
