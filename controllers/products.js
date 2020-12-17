@@ -14,3 +14,7 @@ exports.getProducts = (req, res) => {
     const products = Product.fetchAll()
     res.render('shop/product-list', {prods: products, docTitle: 'Shop', path: '/'}) 
 }
+
+exports.getCart = (req, res) => {
+    res.render('shop/cart', {docTitle: 'Cart', path: '/shop/cart'})
+}
