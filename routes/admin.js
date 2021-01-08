@@ -1,19 +1,18 @@
-const path = require('path')
-const express = require('express')
+const path = require('path');
 
-const router = express.Router()
-const adminController = require('../controllers/admin')
+const express = require('express');
 
+const adminController = require('../controllers/admin');
 
-//Rota get para adicionar produtos
-router.get('/add-product', adminController.getAddProduct)
+const router = express.Router();
 
-//Filtrando rota para ser acessível apenas para requisições do tipo POST
-router.post('/product', adminController.postAddProduct)
+// /admin/add-product => GET
+router.get('/add-product', adminController.getAddProduct);
 
 // /admin/products => GET
-router.get('/products', adminController.getProducts)
+router.get('/products', adminController.getProducts);
 
+// /admin/add-product => POST
+router.post('/add-product', adminController.postAddProduct);
 
-module.exports = router
-
+module.exports = router;

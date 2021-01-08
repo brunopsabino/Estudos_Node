@@ -1,40 +1,42 @@
-const Product = require('../models/product')
+const Product = require('../models/product');
 
-exports.getProducts = (req, res) => {
-    const products = Product.fetchAll()
+exports.getProducts = (req, res, next) => {
+  Product.fetchAll(products => {
     res.render('shop/product-list', {
-        prods: products, 
-        docTitle: 'All Products',
-        path: '/products'}) 
-}
+      prods: products,
+      pageTitle: 'All Products',
+      path: '/products'
+    });
+  });
+};
 
-exports.getProductPage = (req, res) => {
-    res.render('shop/product')
-}
-
-exports.getIndex = (req, res) => {
-    const products = Product.fetchAll()
+exports.getIndex = (req, res, next) => {
+  Product.fetchAll(products => {
     res.render('shop/index', {
-        prods: products,
-        docTitle: 'Shop', 
-        path: '/'})
-}
+      prods: products,
+      pageTitle: 'Shop',
+      path: '/'
+    });
+  });
+};
 
-exports.getCart = (req, res) => {
-    res.render('shop/cart', {
-        docTitle: 'All Your Cart', 
-        path: '/cart'})
-}
+exports.getCart = (req, res, next) => {
+  res.render('shop/cart', {
+    path: '/cart',
+    pageTitle: 'Your Cart'
+  });
+};
 
-exports.getOrders = (req, res) => {
-    res.render('shop/orders', {
-        docTitle: 'Your Orders', 
-        path: '/orders'})
-}
+exports.getOrders = (req, res, next) => {
+  res.render('shop/orders', {
+    path: '/orders',
+    pageTitle: 'Your Orders'
+  });
+};
 
-exports.getCheckout = (req, res) => {
-    res.render('shop/checkout', {
-        docTitle: 'Checkout', 
-        path: '/checkout'
-    })
-}
+exports.getCheckout = (req, res, next) => {
+  res.render('shop/checkout', {
+    path: '/checkout',
+    pageTitle: 'Checkout'
+  });
+};

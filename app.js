@@ -1,33 +1,24 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const path = require('path')
-const port = 3000
+const path = require('path');
 
-const app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
 
-app.set('view engine', 'ejs')//variável global para definir a templete engine que sera usada
-app.set('views', 'views')
+const errorController = require('./controllers/error');
 
-//Controller
-const erroController  = require('./controllers/error')
+const app = express();
 
-//Routes
-const adminRoutes = require('./routes/admin')
-const shopRoutes  = require('./routes/shop')
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
-//Adicionando body parser na aplicação para possibilitar a leitura das responses
-app.use(bodyParser.urlencoded({extended: false}))
-//Servir arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public')))
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-/* Fluxo de middlewares vai top to bottom*/
-app.use('/admin', adminRoutes)//Usando filter /admin para as rotas de adminRoutes
-app.use(shopRoutes)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-//Adicionando Page not Found
-app.use(erroController.get404)
+app.use('/admin', adminRoutes);
+app.use(shopRoutes);
 
-//Escutar porta definida
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-  })
+app.use(errorController.get404);
+
+app.listen(3000);
