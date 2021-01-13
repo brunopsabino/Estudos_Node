@@ -1,7 +1,7 @@
 {
-  "name": "Estudos Node",
+  "name": "Estudos_Node",
   "version": "1.0.0",
-  "description": "Estudos Node",
+  "description": "Estudos_Node",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
