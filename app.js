@@ -51,6 +51,9 @@ Order.belongsTo(User)
 User.hasMany(Order)
 Order.belongsToMany(Product, {through: OrderItem})
 
+
+//Realizar adaptações para conectar pelo MongoDB
+
 sequelize
     //.sync({force: true} )
     .sync()
